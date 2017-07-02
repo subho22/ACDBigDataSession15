@@ -1,0 +1,9 @@
+/* Calculate the number of employees corresponding to each skill from the table 'employee' which is loaded in the Demo. */
+
+create table employee(name String, skill String, num int, loc String)
+    > row format delimited                                                 
+    > fields terminated by ','; 
+
+LOAD DATA LOCAL INPATH '/home/acadgild/Downloads/emp_details.txt' OVERWRITE INTO TABLE employee;
+
+select count(*),skill from employee group by skill;
